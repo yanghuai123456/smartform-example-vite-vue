@@ -1,4 +1,4 @@
-# Vue 3 (Vite) contact form â€” Formspree alternative with AI spam filtering
+# Vue 3 (Vite) contact form â€?Formspree alternative with AI spam filtering
 
 Contact form for a Vite + Vue 3 app, posting JSON to SmartForm AI.
 
@@ -7,11 +7,11 @@ Contact form for a Vite + Vue 3 app, posting JSON to SmartForm AI.
 The endpoint accepts a standard HTML form POST or JSON via AJAX. Two
 kinds of fields:
 
-**Your form fields** â€” `name`, `email`, `message`, whatever you
+**Your form fields** â€?`name`, `email`, `message`, whatever you
 want. Every non-reserved field lands in your dashboard as a column in
 the submissions table.
 
-**Reserved fields** â€” names starting with `_` are interpreted by
+**Reserved fields** â€?names starting with `_` are interpreted by
 the API, not stored:
 
 | Field | Purpose |
@@ -22,7 +22,7 @@ the API, not stored:
 | ``_subject`` | Override the AI-generated email subject line. Max 200 chars; control characters stripped. |
 | `X-Gotcha` header | Same as `_gotcha` for JSON requests where you can't add a hidden form field. |
 
-Field names are Formspree-compatible â€” migrating from
+Field names are Formspree-compatible â€?migrating from
 `formspree.io/f/{form_id}` requires no renaming.
 
 ## Setup
@@ -30,11 +30,11 @@ Field names are Formspree-compatible â€” migrating from
 1. Get a form ID at https://usesmartform.com/dashboard.
 2. Clone, install, configure, run:
    ```bash
-   git clone https://github.com/yanghuai123456/smartform-example-vite-vue.git
+   git clone https://github.com/smartformai/smartform-example-vite-vue.git
    cd smartform-example-vite-vue
    npm install
    cp .env.example .env
-   # edit .env â†’ VITE_SMARTFORM_FORM_ID=f_your_real_id
+   # edit .env â†?VITE_SMARTFORM_FORM_ID=your_real_id
    npm run dev
    ```
 3. Open http://localhost:5173, submit, check your dashboard.
@@ -53,7 +53,7 @@ const status   = ref('');
 
 async function onSubmit(e) {
   e.preventDefault();
-  status.value = 'Sendingâ€¦';
+  status.value = 'Sendingâ€?;
   const data = Object.fromEntries(new FormData(e.currentTarget));
   try {
     const r = await fetch(`${ENDPOINT}/${FORM_ID}`, {
@@ -85,7 +85,7 @@ async function onSubmit(e) {
 
 ## How the API works
 
-- `POST {endpoint}/api/v1/f/{form_id}` â€” JSON or form-data, no API key.
+- `POST {endpoint}/api/v1/f/{form_id}` â€?JSON or form-data, no API key.
 - Response: `{ success, message, submission_id, is_spam, intent, next_url }`.
 
 For the full contract, see https://usesmartform.com/docs.
@@ -106,7 +106,7 @@ Set `VITE_SMARTFORM_FORM_ID` as an env var in your hosting dashboard.
 
 Yes. AI spam filtering is enabled by default on every plan. AI intent
 classification and high-value lead detection require a paid plan (Pro
-or Business) â€” the dashboard enforces this and returns HTTP 402 if
+or Business) â€?the dashboard enforces this and returns HTTP 402 if
 you try to enable them on a free workspace.
 
 ### Do I need an API key?
@@ -119,7 +119,7 @@ form ID, which is non-enumerable. The example also includes a hidden
 No. The form posts JSON to the public endpoint. The example is a single Vue 3 SFC with inline status.
 
 ## Related examples
-[Vite + React contact form](https://github.com/yanghuai123456/smartform-example-vite-react) | [Angular contact form](https://github.com/yanghuai123456/smartform-example-angular) | [smartform-js SDK](https://github.com/yanghuai123456/smartform-js)
+[Vite + React contact form](https://github.com/smartformai/smartform-example-vite-react) | [Angular contact form](https://github.com/smartformai/smartform-example-angular) | [smartform-js SDK](https://github.com/smartformai/smartform-js)
 
 
 ## License
